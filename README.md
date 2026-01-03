@@ -106,48 +106,7 @@ yarn test:watch
 - **Integration Tests**: Located in `src/integration/` directory
 - **Component Tests**: Located alongside components
 
-## 📦 Build for Production
 
-```bash
-npm run build
-# or
-yarn build
-```
-
-The build artifacts will be stored in the `dist/` directory.
-
-## 🚀 Deployment
-
-### Vercel (Recommended)
-
-1. Push your code to GitHub
-2. Go to [Vercel](https://vercel.com) and sign in with GitHub
-3. Click "New Project" → "Import Git Repository"
-4. Select your repository
-5. Configure build settings (auto-detected for Vite + React)
-6. Click "Deploy"
-
-### Netlify
-
-1. Push your code to GitHub
-2. Go to [Netlify](https://www.netlify.com/) and sign in with GitHub
-3. Click "Add new site" → "Import an existing project"
-4. Select your repository
-5. Configure build settings:
-   - **Build command**: `npm run build`
-   - **Publish directory**: `dist`
-6. Click "Deploy site"
-
-### Render
-
-1. Push your code to GitHub
-2. Go to [Render](https://render.com/) and sign in with GitHub
-3. Click "New" → "Web Service"
-4. Select your repository
-5. Configure build settings:
-   - **Build command**: `npm run build`
-   - **Start command**: `npm start` (for static sites, use `npx serve dist`)
-   - **Environment**: Static Site
 
 ## 📁 Project Structure
 
@@ -179,14 +138,7 @@ src/
 └── setupTests.ts          # Test configuration
 ```
 
-## 🎨 UI/UX Features
 
-- **Glassmorphism Design**: Modern frosted glass effect with backdrop blur
-- **Responsive Grid**: Adaptive layout for all screen sizes
-- **Smooth Transitions**: Hover effects and micro-interactions
-- **Loading States**: Beautiful spinners and skeleton screens
-- **Dark Theme**: Elegant dark color scheme with gradient accents
-- **Accessibility**: ARIA labels and semantic HTML
 
 ## 🔧 Configuration Files
 
@@ -222,9 +174,7 @@ src/
 - Create a new issue for bugs or feature requests
 - Review the test files for usage examples
 
-## 📄 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## 🤝 Contributing
 
