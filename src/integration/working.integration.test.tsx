@@ -11,7 +11,8 @@ import type { Product } from '../types';
 
 // Mock axios
 jest.mock('axios');
-const axios = require('axios');
+import axios from 'axios';
+const mockedAxios = axios as jest.Mocked<typeof axios>;
 
 const mockProducts: Product[] = [
   {
@@ -60,14 +61,14 @@ describe('Working Integration Tests', () => {
     localStorage.clear();
     
     // Reset axios mocks
-    axios.get = jest.fn();
-    axios.get.mockClear();
+    mockedAxios.get = jest.fn();
+    mockedAxios.get.mockClear();
   });
 
   describe('Search Integration', () => {
     it('should search products and update UI', async () => {
       // Mock successful API calls
-      axios.get
+      mockedAxios.get
         .mockResolvedValueOnce({ data: mockProducts })
         .mockResolvedValueOnce({ data: ['electronics', 'clothing'] });
 
@@ -91,7 +92,7 @@ describe('Working Integration Tests', () => {
     });
 
     it('should show no results for non-matching search', async () => {
-      axios.get
+      mockedAxios.get
         .mockResolvedValueOnce({ data: mockProducts })
         .mockResolvedValueOnce({ data: ['electronics', 'clothing'] });
 
@@ -113,7 +114,7 @@ describe('Working Integration Tests', () => {
 
   describe('Category Filter Integration', () => {
     it('should filter by category', async () => {
-      axios.get
+      mockedAxios.get
         .mockResolvedValueOnce({ data: mockProducts })
         .mockResolvedValueOnce({ data: ['electronics', 'clothing'] });
 
@@ -137,7 +138,7 @@ describe('Working Integration Tests', () => {
 
   describe('Favorites Integration', () => {
     it('should add product to favorites', async () => {
-      axios.get
+      mockedAxios.get
         .mockResolvedValueOnce({ data: mockProducts })
         .mockResolvedValueOnce({ data: ['electronics', 'clothing'] });
 
@@ -161,7 +162,7 @@ describe('Working Integration Tests', () => {
     });
 
     it('should prevent duplicate favorites', async () => {
-      axios.get
+      mockedAxios.get
         .mockResolvedValueOnce({ data: mockProducts })
         .mockResolvedValueOnce({ data: ['electronics', 'clothing'] });
 
@@ -189,7 +190,7 @@ describe('Working Integration Tests', () => {
 
   describe('Combined Filters Integration', () => {
     it('should combine search and category filters', async () => {
-      axios.get
+      mockedAxios.get
         .mockResolvedValueOnce({ data: mockProducts })
         .mockResolvedValueOnce({ data: ['electronics', 'clothing'] });
 
@@ -220,7 +221,7 @@ describe('Working Integration Tests', () => {
 
   describe('Price Sorting Integration', () => {
     it('should sort products by price ascending', async () => {
-      axios.get
+      mockedAxios.get
         .mockResolvedValueOnce({ data: mockProducts })
         .mockResolvedValueOnce({ data: ['electronics', 'clothing'] });
 
@@ -244,7 +245,7 @@ describe('Working Integration Tests', () => {
 
   describe('UI States Integration', () => {
     it('should render product grid correctly', async () => {
-      axios.get
+      mockedAxios.get
         .mockResolvedValueOnce({ data: mockProducts })
         .mockResolvedValueOnce({ data: ['electronics', 'clothing'] });
 
@@ -267,7 +268,7 @@ describe('Working Integration Tests', () => {
 
     it('should show loading state', async () => {
       // Mock never-resolving promise for loading state
-      axios.get.mockReturnValueOnce(new Promise(() => {}));
+      mockedAxios.get.mockReturnValueOnce(new Promise(() => {}));
 
       renderWithProviders(<ProductListingPage />);
 
@@ -279,7 +280,7 @@ describe('Working Integration Tests', () => {
 
   describe('End-to-End User Flow', () => {
     it('should complete full user journey: search -> filter -> favorite', async () => {
-      axios.get
+      mockedAxios.get
         .mockResolvedValueOnce({ data: mockProducts })
         .mockResolvedValueOnce({ data: ['electronics', 'clothing'] });
 

@@ -34,7 +34,7 @@ describe('favoriteSlice', () => {
       localStorage.setItem('favorites', JSON.stringify(savedFavorites));
       
       // Test localStorage integration by checking initial state
-      const state = favoritesReducer(undefined, { type: 'unknown' });
+      favoritesReducer(undefined, { type: 'unknown' });
       
       // Note: This test verifies localStorage is checked during initialization
       // The actual localStorage loading happens in the slice file
