@@ -1,3 +1,7 @@
+## 🌐 Live Demo
+
+The application is deployed and available at: https://react-store-nine-bice.vercel.app/
+
 # Product Dashboard React Application
 
 A modern, responsive product dashboard built with React, TypeScript, Redux Toolkit, and Tailwind CSS. Features include product browsing, search, filtering, favorites management, and a beautiful glassmorphism UI design.
@@ -238,9 +242,6 @@ The project maintains high test coverage with:
 - Component tests for UI interactions
 - API mocking for reliable testing
 
-## 🌐 Live Demo
-
-The application is deployed and available at: [Your Live URL Here]
 
 ---
 
