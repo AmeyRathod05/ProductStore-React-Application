@@ -168,9 +168,9 @@ export const ExtensibleFormField: React.FC<ExtensibleFormFieldProps> = ({
   };
 
   return (
-    <Grid item xs={fieldConfig.gridProps?.xs || 12} {...fieldConfig.gridProps}>
+    <Box sx={{ width: '100%', mb: 2 }}>
       {renderField()}
-    </Grid>
+    </Box>
   );
 };
 
