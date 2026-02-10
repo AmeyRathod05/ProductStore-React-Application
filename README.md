@@ -9,33 +9,19 @@ Currently, two official plugins are available:
 
 ## React Compiler
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
-
-Note: This will impact Vite dev & build performances.
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
+```typescript
+// Add to src/features/users/config/userFieldsConfig.ts
+{
+  id: 'dateOfBirth',
+  name: 'dateOfBirth',
+  label: 'Date of Birth',
+  type: 'date',
+  required: false,
+  validation: z.string().optional(),
+  defaultValue: '',
+  gridProps: { xs: 12, sm: 6 },
+  tableProps: { width: 120, sortable: true, format: (value) => new Date(value).toLocaleDateString() }
+}
         project: ['./tsconfig.node.json', './tsconfig.app.json'],
         tsconfigRootDir: import.meta.dirname,
       },

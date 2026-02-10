@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import ProductListingPage from './pages/ProductListingPage';
 import ProductDetailPage from './pages/ProductDetailPage';
 import FavoritesPage from './pages/FavoritePage';
+import UserManagementPage from './pages/UserManagementPage';
 import { Link } from 'react-router-dom';
 
 function Header() {
@@ -29,6 +30,12 @@ function Header() {
             >
               Favorites ❤️
             </Link>
+            <Link 
+              to="/users" 
+              className="text-white/80 hover:text-white hover:bg-white/10 px-4 py-2 rounded-lg transition-all backdrop-blur-sm border border-transparent hover:border-white/20"
+            >
+              Users 👥
+            </Link>
           </nav>
         </nav>
       </div>
@@ -45,6 +52,7 @@ export default function App() {
           <Route path="/" element={<ProductListingPage />} />
           <Route path="/product/:id" element={<ProductDetailPage />} />
           <Route path="/favorites" element={<FavoritesPage />} />
+          <Route path="/users" element={<UserManagementPage />} />
         </Routes>
       </main>
     </div>
